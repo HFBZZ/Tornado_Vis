@@ -144,8 +144,8 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .25)
   	.style("fill", function(d) { 
-      if (d["color"] = 1) {return "green"}
-      if (d["color"] = 2) {return "Blue"}
+      if (d["color"] = "1") {return "green"}
+      else if (d["color"] = "2") {return "Blue"}
       else { return "Red"}
     
     })
