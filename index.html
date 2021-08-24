@@ -102,8 +102,8 @@ d3.csv("weeks.csv", function(error, data) {
   	
   
   tickCircles.selectAll("circle")
-    //.data(ticks)
-   .enter().append("circle")
+    .data(ticks)
+    .enter().append("circle")
 	  .attr("r", function(d) {return x(d);})
     .style("fill", "none")
 	  .style("stroke", "#d6d6d6")
