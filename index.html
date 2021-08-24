@@ -84,14 +84,14 @@ d3.csv("weeks.csv", function(error, data) {
  
   monthTicks.selectAll(".monthTick")
     .append("line")
-    .attr("y1", -maxRadius + 20)
-    .attr("y2", -maxRadius - 10)
+    .attr("y1", -maxRadius + 40)
+    .attr("y2", -maxRadius + 10)
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
 
   monthTicks.selectAll(".monthTick").append("text")
     .attr("x", 8)
-    .attr("y", -maxRadius + 5)
+    .attr("y", -maxRadius + 16)
     .style("font-size",18)
     .style("fill","#d6d6d6")
     .style("font-family","monospace")
@@ -141,7 +141,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  //.attr("r", 40)
     //.attr("r",18)
     .attr("r", function(d) { return d["Radius"]; })
-	  .style("opacity", .22)
+	  .style("opacity", .25)
   	.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
