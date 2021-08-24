@@ -56,7 +56,8 @@ d3.csv("weeks.csv", function(error, data) {
     d["date"] = formatDate.parse(d["date"]);
     d["Week Number"] = +d["Week Number"];
 	  d["Radius"] = +d["Radius"];
-    d["Radius Average"] = +d["Radius Average"];
+    d["Radius Average"] = +d["Radius Average"]
+    d["Color"] = +d["Color"];
 	  //d["Mean TemperatureC"] = +d["Mean TemperatureC"];
 	  //d["Precipitationmm"] = (d["Precipitationmm"] === "T") ? 0 : +d["Precipitationmm"];
   });
@@ -142,7 +143,13 @@ d3.csv("weeks.csv", function(error, data) {
     //.attr("r",18)
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .25)
-  	.style("fill", "#5c82b9");
+  	.style("fill", function(d) { 
+      if (d["color"] = 1) {return "green"}
+      if (d["color"] = 2) {return "Blue"}
+      else { return "Red"}
+    
+    })
+    //.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
     .attr("class", "legend");
