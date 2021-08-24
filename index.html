@@ -55,7 +55,8 @@ d3.csv("weeks.csv", function(error, data) {
   data.forEach(function(d) {
     d["date"] = formatDate.parse(d["date"]);
     d["Week Number"] = +d["Week Number"];
-	  d["Radius / %"] = +d["Radius / %"];
+	  d["Radius"] = +d["Radius"];
+    d["Radius Average"] = +d["Radius Average"];
 	  //d["Mean TemperatureC"] = +d["Mean TemperatureC"];
 	  //d["Precipitationmm"] = (d["Precipitationmm"] === "T") ? 0 : +d["Precipitationmm"];
   });
