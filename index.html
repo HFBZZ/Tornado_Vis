@@ -84,7 +84,7 @@ d3.csv("weeks.csv", function(error, data) {
  
   monthTicks.selectAll(".monthTick")
     .append("line")
-    .attr("y1", -maxRadius - 5)
+    .attr("y1", -maxRadius + 20)
     .attr("y2", -maxRadius - 10)
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
