@@ -129,7 +129,7 @@ d3.csv("weeks.csv", function(error, data) {
     
   var Tornado = svg.selectAll(".Tornado")
     .data(data)
-   .enter().append("g")
+    .enter().append("g")
     .attr("class","Tornado")
 	  .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
 
