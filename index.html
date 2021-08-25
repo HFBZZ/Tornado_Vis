@@ -140,9 +140,11 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .35)
   	.style("fill", function(d) { 
-      if (d.Color = 1) { return "#5c82b9"} 
-      if (d.color = 2) { return "#eb9813"} 
-      if (d.color = 3) { return "#e6350e"}});
+      if (d["Color"] = 1) { return "#5c82b9"} 
+      if (d["color"] = 2) { return "#eb9813"} 
+      if (d["color"] = 3) { return "#e6350e"}
+    })
+    ;
     //.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
