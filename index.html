@@ -162,6 +162,15 @@ d3.csv("weeks.csv", function(error, data) {
     .style("text-anchor", "middle")
     .text("Tornados of Texas");
 
+
+  legend.append("text")
+    .attr("dy", "5em")
+  	.style("font-size",50)
+  	.style("fill","#454545")
+  	.style("font-family","monospace")
+    .style("text-anchor", "middle")
+    .text("Zixu");
+
   svg.append("g")
     .attr("class", "x axis")
     //.call(xAxis)
