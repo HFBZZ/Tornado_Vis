@@ -168,7 +168,7 @@ d3.csv("weeks.csv", function(error, data) {
     .style("text-anchor", "middle")
     .text("of Texas");
 
-  legend.append("text")
+  /*legend.append("text")
     .attr("dy", "0em")
     .attr("dx", "0em")
   	.style("font-size",30)
@@ -176,6 +176,7 @@ d3.csv("weeks.csv", function(error, data) {
   	.style("font-family","monospace")
     .style("text-anchor", "middle")
     .text("Weekly Accumulated");
+    */
     
   legend.append("text")
     .attr("dy", "1em")
@@ -184,7 +185,7 @@ d3.csv("weeks.csv", function(error, data) {
   	.style("fill","#454545")
   	.style("font-family","monospace")
     .style("text-anchor", "middle")
-    .text("Data from 2000 to 2015");
+    .text("Historical data week 1 to 54");
 
 
   svg.append("g")
