@@ -134,13 +134,12 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("class","Tornado")
 	  .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
 
-
     Tornado.append("circle")
     .attr("cx",0)
     .attr("cy", -300)
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .35)
-  	.style("fill", function(d) { return "red";});
+  	.style("fill", function(d) { return d["color"];});
     //.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
