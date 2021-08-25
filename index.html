@@ -138,10 +138,6 @@ d3.csv("weeks.csv", function(error, data) {
     Tornado.append("circle")
     .attr("cx",0)
     .attr("cy", -300)
-    //.attr("cy",function(d) { return - 300 /*-x(d["Count"])*/; })
-    //.attr("cy",0)
-	  //.attr("r", 40)
-    //.attr("r",18)
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .35)
   	.style("fill", function(d) { 
