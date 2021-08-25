@@ -57,7 +57,7 @@ d3.csv("weeks.csv", function(error, data) {
     d["Week Number"] = +d["Week Number"];
 	  d["Radius"] = +d["Radius"];
     d["Radius Average"] = +d["Radius Average"]
-    d["Color"] = +d["Color"];
+    d["Color"] = "Color";
 	  //d["Mean TemperatureC"] = +d["Mean TemperatureC"];
 	  //d["Precipitationmm"] = (d["Precipitationmm"] === "T") ? 0 : +d["Precipitationmm"];
   });
@@ -139,7 +139,7 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("cy", -300)
     .attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .35)
-  	.style("fill", function(d) { return d["color"];});
+  	.style("fill", function(d) { return "color";});
     //.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
