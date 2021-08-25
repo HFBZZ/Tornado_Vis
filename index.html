@@ -134,7 +134,8 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("class","Tornado")
 	  .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
 
-  Tornado.append("circle")
+  if (d["color"] = "1") {
+    Tornado.append("circle")
     .attr("cx",0)
     .attr("cy", -300)
     //.attr("cy",function(d) { return - 300 /*-x(d["Count"])*/; })
@@ -148,6 +149,7 @@ d3.csv("weeks.csv", function(error, data) {
       else if (d["color"] = "2") {return "Blue";}
       else { return "Red";};
     })
+  };
     //.style("fill", "#5c82b9");
 
   var legend = svg.append("g")
