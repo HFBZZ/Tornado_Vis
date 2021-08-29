@@ -139,7 +139,7 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("cy", -300)
     //.attr("r", function(d) { return 18 })
     .attr("r", function(d) { return d["Radius"]; })
-	  .style("opacity", .30)
+	  .style("opacity", .35)
   	.style("fill", function(d) { 
       if (d.Color == "0") { return "#2282f7"}
       if (d.Color == "1") { return "#3ef722"} 
