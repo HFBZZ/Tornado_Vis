@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
 
+body {
+  font: 10px sans-serif;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script>
+
+var width = 960,
+    height = 900,
+    margin = 40,
+    maxRadius = (height/2) - margin;
+
+var formatDate = d3.time.format("%Y-%m-%d"),
+	monthNameFormat = d3.time.format("%b");
+
+// var ticks = [-20,-10,0,10,20,30,40];
+
+var x = d3.scale.linear()
+ .domain([-20, 40])
+ .range([120, maxRadius]);
+
+
+//var xAxis = d3.svg.axis()
+  //.scale(x).orient("left")
+  //.tickValues()
+  //.tickFormat(function(d) { return d + "°C"; });
+  
+
+var r = d3.scale.linear()
+  .domain([0,200])
+  .range([0, maxRadius/4]);
+
+var color = d3.scale.linear()
+  //.domain(ticks)
+  //.range(["#00375a","#1b6491","#52b7e7","#96d88c","#fbd65f","#e46c56","#9e3b2c"]);
+
+var svg = d3.select('body').append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+d3.csv("weeks.csv", function(error, data) {
+
+  data.forEach(function(d) {
+    d["date"] = formatDate.parse(d["date"]);
+    d["Week Number"] = +d["Week Number"];
+	  d["Radius"] = +d["Radius"];
+    d["Radius Average"] = +d["Radius Average"];
+    d["Color"] = +d["Color"];
+	  //d["Mean TemperatureC"] = +d["Mean TemperatureC"];
+	  //d["Precipitationmm"] = (d["Precipitationmm"] === "T") ? 0 : +d["Precipitationmm"];
+  });
+
+  /*
+  var arc = d3.svg.arc()
+    .startAngle(function(d) { return 0; })
+	  .endAngle(function(d) { return ((2 * Math.PI) / (data.length)); })
+	  .innerRadius(function(d) { return x(d["Min TemperatureC"]); })
+	  .outerRadius(function(d) { return x(d["Max TemperatureC"]); });
+    */
+
+  var months = d3.map(data, function(d) {
+    return monthNameFormat(d["date"]);
+  }).keys();
+
+  var monthTicks = svg.append("g")
+  	.attr("class","monthTicks");
+
+  monthTicks.selectAll(".monthTick")
+	  .data(months)
+   .enter().append("g")
+	  .attr("class","monthTick")
+	  .attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
+ 
+  monthTicks.selectAll(".monthTick")
+    .append("line")
+    .attr("y1", -maxRadius + 40)
+    .attr("y2", -maxRadius + 10)
+    .style("stroke", "#d6d6d6")
+    .style("stroke-width",3);
+
+  monthTicks.selectAll(".monthTick").append("text")
+    .attr("x", 8)
+    .attr("y", -maxRadius + 30)
+    .style("font-size",18)
+    .style("fill","#787878")
+    .style("font-family","monospace")
+    .style("text-anchor", "begin")
+    .text(function(d) { return d; });
+
+  /*var tickCircles = svg.append("g")
+    .attr("class","ticksCircle");
+  	
+  
+  tickCircles.selectAll("circle")
+    .data(ticks)
+    .enter().append("circle")
+	  .attr("r", function(d) {return x(d);})
+    .style("fill", "none")
+	  .style("stroke", "#d6d6d6")
+    .style("stroke-width", function(d,i) { return ((i & 1) === 0) ? 1 : 0.25; });
+  
+  
+  var temperatures = svg.selectAll(".temperature")
+    .data(data)
+   .enter().append("g")
+    .attr("class","temperature")
+    .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
+  
+  
+  temperatures.append("path")
+    .style("stroke", "white")
+    .style("stroke-width",1.2)
+    .style("fill", function(d) { return color(d["Mean TemperatureC"]); })
+    .attr("d", arc);
+    */
+    
+  var Tornado = svg.selectAll(".Tornado")
+    .data(data)
+    .enter().append("g")
+    .attr("class","Tornado")
+	  .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
+
+    Tornado.append("circle")
+    .attr("cx",0)
+    .attr("cy", -300)
+    //.attr("r", function(d) { return 18 })
+    .attr("r", function(d) { return d["Radius"]; })
+	  .style("opacity", .35)
+  	.style("fill", function(d) { 
+      if (d.Color == "0") { return "#2282f7"}
+      if (d.Color == "1") { return "#3ef722"} 
+      if (d.Color == "2") { return "#f7d022"} 
+      if (d.Color == "3") { return "#e20808"}
+    })
+    ;
+
+  var legend = svg.append("g")
+    .attr("class", "legend");
+
+  legend.append("text")
+    .attr("dy", "-2em")
+  	.style("font-size",50)
+  	.style("fill","#454545")
+  	.style("font-family","monospace")
+    .style("text-anchor", "middle")
+    .text("Tornados");
+
+  legend.append("text")
+    .attr("dy", "-1em")
+    .attr("dx", "0em")
+  	.style("font-size",50)
+  	.style("fill","#454545")
+  	.style("font-family","monospace")
+    .style("text-anchor", "middle")
+    .text("of Texas");
+
+  /*legend.append("text")
+    .attr("dy", "0em")
+    .attr("dx", "0em")
+  	.style("font-size",30)
+  	.style("fill","#454545")
+  	.style("font-family","monospace")
+    .style("text-anchor", "middle")
+    .text("Weekly Accumulated");
+    */
+    
+  legend.append("text")
+    .attr("dy", "1em")
+    .attr("dx", "0em")
+  	.style("font-size",30)
+  	.style("fill","#454545")
+  	.style("font-family","monospace")
+    .style("text-anchor", "middle")
+    .text("Historical data week 1 to 52");
+
+
+  svg.append("g")
+    .attr("class", "x axis")
+    //.call(xAxis)
+    .selectAll("text")
+    .style("fill","#454545")
+    .style("text-anchor","middle");
+
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+
+</script>
