@@ -130,7 +130,7 @@ d3.csv("weeks.csv", function(error, data) {
     .data(data)
     .enter().append("g")
     .attr("class","Tornado")
-    .attr("transform", x.axis = function(d) * 10, y.axis = 450);
+	  .attr("transform", 0, function(d) * 10,0,450,0,0);
 	
     Tornado.append("circle")
     .attr("cx",0)
