@@ -18,7 +18,7 @@ body {
 var width = 960,
     height = 900,
     margin = 40,
-    maxRadius = (height/2) - margin;
+    maxRadius = (width) - (1.5*margin);
 
 var formatDate = d3.time.format("%Y-%m-%d"),
 	monthNameFormat = d3.time.format("%b");
@@ -27,7 +27,7 @@ var formatDate = d3.time.format("%Y-%m-%d"),
 
 var x = d3.scale.linear()
  .domain([-20, 40])
- .range([120, maxRadius]);
+ .range([50, maxRadius]);
 
 
 //var xAxis = d3.svg.axis()
@@ -81,7 +81,6 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
    .enter().append("g")
 	  .attr("class","monthTick")
-    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
