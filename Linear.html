@@ -48,7 +48,7 @@ var svg = d3.select('body').append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+    //.attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 
 d3.csv("weeks.csv", function(error, data) {
 
@@ -81,7 +81,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
    .enter().append("g")
 	  .attr("class","monthTick")
-	  .attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
+	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
     .append("line")
@@ -130,7 +130,7 @@ d3.csv("weeks.csv", function(error, data) {
     .data(data)
     .enter().append("g")
     .attr("class","Tornado")
-	  .attr("transform", function(d, i) { return "360"; });
+	  //.attr("transform", function(d, i) { return "360"; });
 	
     Tornado.append("circle")
     .attr("cx",0)
