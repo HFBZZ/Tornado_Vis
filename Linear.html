@@ -30,9 +30,9 @@ var x = d3.scale.linear()
  .range([120, maxRadius]);
 
 
-var xAxis = d3.svg.axis()
-  .scale(x).orient("left")
-  .tickValues()
+//var xAxis = d3.svg.axis()
+  //.scale(x).orient("left")
+  //.tickValues()
   //.tickFormat(function(d) { return d + "°C"; });
   
 
@@ -130,7 +130,7 @@ d3.csv("weeks.csv", function(error, data) {
     .data(data)
     .enter().append("g")
     .attr("class","Tornado")
-	  .attr("transform", function(d, i) { return "rotate(" + (i * 360 / data.length) + ")"; });
+	  .attr("transform", function(d, i) { return " + (i * 360 / data.length) + "; });
 
     Tornado.append("circle")
     .attr("cx",0)
