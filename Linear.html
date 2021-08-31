@@ -30,9 +30,9 @@ var x = d3.scale.linear()
  .range([120, maxRadius]);
 
 
-//var xAxis = d3.svg.axis()
-  //.scale(x).orient("left")
-  //.tickValues()
+var xAxis = d3.svg.axis()
+  .scale(x).orient("left")
+  .tickValues()
   //.tickFormat(function(d) { return d + "°C"; });
   
 
