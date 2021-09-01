@@ -145,7 +145,7 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("cx",function(d){return (36*0.5*d["Week Number"]);})
     //.attr("cy", -100)
     //.attr("r", function(d) { return 18 })
-    .attr("r", function(d) { return (0.85*d["Radius"]); })
+    .attr("r", function(d) { return (0.5*d["Radius"]); })
 	  .style("opacity", .35)
   	.style("fill", function(d) { 
       if (d.Color == "0") { return "#1698d9"}
