@@ -86,14 +86,14 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
-    .attr("shape-rendering" , "line" );
+    //.attr("shape-rendering" , "line" );
     //.attr("transform", "translate(100,600)");
 	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
     .append("line")
-    .attr("y1",  40)
-    .attr("y2",  10)
+    .attr("y1",  440)
+    .attr("y2",  410)
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
 
