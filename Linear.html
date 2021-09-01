@@ -86,6 +86,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
+    .attr("transform", "translate(0,480)");
     //.attr("shape-rendering" , "line" );
     //.attr("transform", "translate(100,600)");
 	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
