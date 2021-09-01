@@ -86,7 +86,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
-    .attr("translate", "(" + function(d, i) { return (i * months.length) ;} + ",520)" )
+    .attr("transform", "translate (" + function(d, i) { return (i * months.length) ;} + ",520)" )
     ;
  
   monthTicks.selectAll(".monthTick")
