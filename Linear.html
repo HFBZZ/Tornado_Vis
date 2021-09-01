@@ -92,13 +92,14 @@ d3.csv("weeks.csv", function(error, data) {
  
   monthTicks.selectAll(".monthTick")
     .append("line")
+    .attr("x",function(d){return (36*d["Week Number"]);})
     .attr("y1",  40)
     .attr("y2",  10)
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
 
   monthTicks.selectAll(".monthTick").append("text")
-    .attr("x", 8)
+    .attr("x", function(d){return (8+(36*d["Week Number"]));})
     .attr("y",  30)
     .style("font-size",18)
     .style("fill","#787878")
