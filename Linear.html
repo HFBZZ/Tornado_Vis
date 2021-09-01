@@ -91,7 +91,6 @@ d3.csv("weeks.csv", function(error, data) {
  
   monthTicks.selectAll(".monthTick")
     .append("line")
-    .attr("x", [100,200,300,400,500,600,700,800,900,1000,1100,1200])
     .attr("y1", 40)
     .attr("y2", 10)
     .style("stroke", "#d6d6d6")
@@ -99,6 +98,7 @@ d3.csv("weeks.csv", function(error, data) {
     ;
 
   monthTicks.selectAll(".monthTick").append("text")
+    .attr("x", 8)
     .attr("y",  30)
     .style("font-size",18)
     .style("fill","#787878")
