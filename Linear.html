@@ -76,12 +76,14 @@ d3.csv("weeks.csv", function(error, data) {
   }).keys();
 
   var monthTicks = svg.append("g")
-  	.attr("class","monthTicks");
+  	.attr("class","monthTicks")
+    .attr("shape-rendering" , "line" );
 
   monthTicks.selectAll(".monthTick")
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
+    .attr("shape-rendering" , "line" );
     //.attr("transform", "translate(100,600)");
 	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
