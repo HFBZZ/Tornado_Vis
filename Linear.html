@@ -80,6 +80,7 @@ d3.csv("weeks.csv", function(error, data) {
 
   var monthTicks = svg.append("g")
   	.attr("class","monthTicks")
+    .attr("x",function(d){return (36*d["Week Number"]);});
     //.attr("shape-rendering" , "line" );
 
   monthTicks.selectAll(".monthTick")
