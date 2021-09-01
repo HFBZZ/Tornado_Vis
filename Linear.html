@@ -46,12 +46,12 @@ var color = d3.scale.linear()
 var svg = d3.select('body').append("svg")
     .attr("width", 2000)
     .attr("height", 800)
-    //.append("g")
+    .append("g")
     .attr("shape-rendering" , "geometric-precision" );
 
-svg.append("g")
-    .attr("class" , "x axis")
-    .attr("transform" , "translate(0,450)");
+//svg.append("g")
+    //.attr("class" , "x axis")
+    //.attr("transform" , "translate(0,450)");
     //.call(xAxis);
 
 d3.csv("weeks.csv", function(error, data) {
@@ -94,9 +94,9 @@ d3.csv("weeks.csv", function(error, data) {
  
   monthTicks.selectAll(".monthTick")
     .append("line")
-    .attr("y1",  40)
-    .attr("y2",  10)
-    .attr("x",300)
+    .attr("y1", 40)
+    .attr("y2", 10)
+    .attr("x", 300)
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
 
