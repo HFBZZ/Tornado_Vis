@@ -26,8 +26,8 @@ var formatDate = d3.time.format("%Y-%m-%d"),
 // var ticks = [-20,-10,0,10,20,30,40];
 
 var x = d3.scale.linear()
- .domain([-20, 40])
- .range([50, maxRadius]);
+ .domain([1, 52])
+ .range([20, maxLength]);
 
 
 //var xAxis = d3.svg.axis()
@@ -36,9 +36,9 @@ var x = d3.scale.linear()
   //.tickFormat(function(d) { return d + "°C"; });
   
 
-var r = d3.scale.linear()
-  .domain([0,200])
-  .range([0, maxRadius/4]);
+//var r = d3.scale.linear()
+ // .domain([0,200])
+  //.range([0, maxRadius/4]);
 
 var color = d3.scale.linear()
   //.domain(ticks)
@@ -48,7 +48,7 @@ var svg = d3.select('body').append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
-    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+    //.attr("transform", "translate(" + width/2 + "," + height/2 + ")");
 
 d3.csv("weeks.csv", function(error, data) {
 
@@ -146,7 +146,7 @@ d3.csv("weeks.csv", function(error, data) {
     })
     ;
 
-  var legend = svg.append("g")
+  /*var legend = svg.append("g")
     .attr("class", "legend");
 
   legend.append("text")
@@ -166,7 +166,7 @@ d3.csv("weeks.csv", function(error, data) {
     .style("text-anchor", "middle")
     .text("of Texas");
 
-  /*legend.append("text")
+  legend.append("text")
     .attr("dy", "0em")
     .attr("dx", "0em")
   	.style("font-size",30)
@@ -174,7 +174,7 @@ d3.csv("weeks.csv", function(error, data) {
   	.style("font-family","monospace")
     .style("text-anchor", "middle")
     .text("Weekly Accumulated");
-    */
+    
     
   legend.append("text")
     .attr("dy", "1em")
@@ -184,7 +184,7 @@ d3.csv("weeks.csv", function(error, data) {
   	.style("font-family","monospace")
     .style("text-anchor", "middle")
     .text("Historical data week 1 to 52");
-
+*/
 
   svg.append("g")
     .attr("class", "x axis")
