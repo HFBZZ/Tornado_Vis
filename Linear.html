@@ -86,11 +86,12 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
-    .attr("transform", "translate( 300 ,520)")
+    .attr("transform", "translate( 0 ,520)")
     ;
  
   monthTicks.selectAll(".monthTick")
     .append("line")
+    .attr("x", [100,200,300,400,500,600,700,800,900,1000,1100,1200])
     .attr("y1", 40)
     .attr("y2", 10)
     .style("stroke", "#d6d6d6")
