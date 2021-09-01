@@ -79,27 +79,23 @@ d3.csv("weeks.csv", function(error, data) {
   }).keys();
 
   var monthTicks = svg.append("g")
-  	.attr("class","monthTicks");
-    //.attr("x",function(d){return (36*d["Week Number"]);});
-    //.attr("shape-rendering" , "line" );
+  	.attr("class","monthTicks")
+    ;
 
   monthTicks.selectAll(".monthTick")
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
+    .attr("transform", "translate( 300 ,520)")
     ;
-    //.attr("x",function(d){return (36*d["Week Number"]);});
-    //.attr("shape-rendering" , "line" );
-    //.attr("transform", "translate(100,600)");
-	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
     .append("line")
     .attr("y1", 40)
     .attr("y2", 10)
-    .attr("transform", "translate( 300 ,520)")
     .style("stroke", "#d6d6d6")
-    .style("stroke-width",3);
+    .style("stroke-width",3)
+    ;
 
   monthTicks.selectAll(".monthTick").append("text")
     .attr("y",  30)
@@ -107,7 +103,8 @@ d3.csv("weeks.csv", function(error, data) {
     .style("fill","#787878")
     .style("font-family","monospace")
     .style("text-anchor", "begin")
-    .text(function(d) { return d; });
+    .text(function(d) { return d; })
+    ;
 
   /*var tickCircles = svg.append("g")
     .attr("class","ticksCircle");
