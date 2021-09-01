@@ -140,7 +140,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  //.attr("transform", function(d, i) { return "360"; });
 	
     Tornado.append("circle")
-    .attr("cx",function(d){return d["Week Number"];})
+    .attr("cx",function(d){return (36*d["Week Number"]);})
     //.attr("cy", -100)
     //.attr("r", function(d) { return 18 })
     .attr("r", function(d) { return d["Radius"]; })
