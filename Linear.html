@@ -81,7 +81,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
    .enter().append("g")
 	  .attr("class","monthTick")
-	  .attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
+	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
     .append("line")
@@ -135,8 +135,8 @@ d3.csv("weeks.csv", function(error, data) {
     Tornado.append("circle")
     .attr("cx",0)
     .attr("cy", -300)
-    //.attr("r", function(d) { return 18 })
-    .attr("r", function(d) { return d["Radius"]; })
+    .attr("r", function(d) { return 18 })
+    //.attr("r", function(d) { return d["Radius"]; })
 	  .style("opacity", .35)
   	.style("fill", function(d) { 
       if (d.Color == "0") { return "#2282f7"}
