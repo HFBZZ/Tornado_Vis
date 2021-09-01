@@ -25,9 +25,9 @@ var formatDate = d3.time.format("%Y-%m-%d"),
 
 // var ticks = [-20,-10,0,10,20,30,40];
 
-//var x = d3.scale.linear()
- //.domain([1, 52])
- //.range([20, maxLength]);
+var x = d3.scale.linear()
+ .domain([0 , 1800])
+ .range([0 , 1800]);
 
 
 //var xAxis = d3.svg.axis()
@@ -79,9 +79,9 @@ d3.csv("weeks.csv", function(error, data) {
 
   monthTicks.selectAll(".monthTick")
 	  .data(months)
-   .enter().append("g")
+    .enter().append("g")
 	  .attr("class","monthTick")
-	  .attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
+	  //.attr("transform", function(d, i) { return "rotate("  + (i * 360 / months.length) + ")"; });
  
   monthTicks.selectAll(".monthTick")
     .append("line")
