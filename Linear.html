@@ -51,8 +51,8 @@ var svg = d3.select('body').append("svg")
 
 svg.append("g")
     .attr("class" , "x axis")
-    .attr("transform" , "tranlaste(0,450)")
-    .call(xAxis);
+    .attr("transform" , "translate(0,450)")
+    //.call(xAxis);
 
 d3.csv("weeks.csv", function(error, data) {
 
