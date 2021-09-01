@@ -87,7 +87,7 @@ d3.csv("weeks.csv", function(error, data) {
 	  .data(months)
     .enter().append("g")
 	  .attr("class","monthTick")
-    .attr("transform", "translate(0,520)");
+    ;
     //.attr("x",function(d){return (36*d["Week Number"]);});
     //.attr("shape-rendering" , "line" );
     //.attr("transform", "translate(100,600)");
@@ -98,6 +98,7 @@ d3.csv("weeks.csv", function(error, data) {
     .attr("y1", 40)
     .attr("y2", 10)
     .attr("x", 300)
+    .attr("transform", "translate(0,520)")
     .style("stroke", "#d6d6d6")
     .style("stroke-width",3);
 
